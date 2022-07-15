@@ -1,3 +1,3 @@
-# WPF Smurfdex
+# 🍄 WPF Smurfdex
 
-A dumb exercise in learning WPF .NET.
+A dumb exercise in WPF .NET.
