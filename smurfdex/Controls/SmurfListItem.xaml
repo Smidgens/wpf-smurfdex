@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Smurfdex.Controls.SmurfListItem"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+mc:Ignorable="d" 
+Height="50"
+d:DesignHeight="100" d:DesignWidth="800"
+>
+	
+	
+	<Grid UIElement.MouseDown="OnClickItem" Cursor="Hand">
+
+		<Grid.ColumnDefinitions>
+
+			<ColumnDefinition Width="50"/>
+			<ColumnDefinition Width="*"/>
+
+		</Grid.ColumnDefinitions>
+
+		<Grid.Effect>
+			<DropShadowEffect ShadowDepth="2" BlurRadius="5" Opacity="0.5"/>
+		</Grid.Effect>
+
+
+		<Grid.Style>
+			<Style TargetType="{x:Type Grid}">
+				<Style.Triggers>
+					<!--<Trigger Property="IsMouseOver" Value="False">
+						<Setter Property="Opacity" Value="0.8"></Setter>
+					</Trigger>
+					<Trigger Property="IsMouseOver" Value="True">
+						<Setter Property="Opacity" Value="1"></Setter>
+					</Trigger>-->
+
+					<Trigger Property="IsMouseOver" Value="True">
+						<Setter Property="Background" Value="#FF2D8CE0"></Setter>
+					</Trigger>
+					<Trigger Property="IsMouseOver" Value="False">
+						<Setter Property="Background" Value="#FF2578C1"></Setter>
+					</Trigger>
+
+				</Style.Triggers>
+			</Style>
+		</Grid.Style>
+
+
+		<Grid Grid.Column="0">
+			<Image
+			RenderOptions.BitmapScalingMode="Fant"
+			Margin="5"
+			Source="{Binding Image}"
+			VerticalAlignment="Center"
+			HorizontalAlignment="Center"
+			/>
+		</Grid>
+
+		
+		<!--<Label
+		Content="{Binding Name}"
+		Grid.Column="1"
+		Foreground="White"
+		FontWeight="UltraLight"
+		FontSize="24"
+		FontFamily="Helvetica"
+		VerticalContentAlignment="Center"
+		/>-->
+		<Label
+		Content="{Binding Name}"
+		Grid.Column="1"
+		Foreground="White"
+		Opacity="0.8"
+		FontSize="15"
+		FontFamily="{StaticResource Tintin}"
+		VerticalContentAlignment="Center"
+		/>
+
+
+		<!--<Button
+		Height="35"
+		Margin="5"
+		Style="{StaticResource BSButton}"
+		Background="MediumSeaGreen"
+		Foreground="White"
+		FontFamily="Helvetica"
+		FontSize="16"
+		MinWidth="50"
+		Grid.Column="2"
+			>
+
+			<TextBlock Margin="10">
+				View
+			</TextBlock>
+			<Button.Resources>
+				<Style TargetType="Border">
+					<Setter Property="CornerRadius" Value="2"/>
+				</Style>
+			</Button.Resources>
+
+		</Button>-->
+
+
+		
+
+	</Grid>
+</UserControl>

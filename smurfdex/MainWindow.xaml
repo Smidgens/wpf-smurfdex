@@ -1,0 +1,51 @@
+﻿<Window
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:Views="clr-namespace:Smurfdex.Views"
+xmlns:Routes="clr-namespace:Smurfdex.Views.Routes"
+xmlns:VM="clr-namespace:Engine.Models.View;assembly=engine"
+xmlns:Models="clr-namespace:Engine.Models;assembly=engine"
+x:Class="Smurfdex.MainWindow"
+mc:Ignorable="d"
+Title="MainWindow" Height="500" Width="750"
+Icon="./Resources/Icons/Smurf.png"
+MinWidth="750"
+MinHeight="500"
+WindowStartupLocation="CenterScreen"
+>
+	<Window.Resources>
+		<!-- Login route -->
+		<DataTemplate DataType="{x:Type VM:LoginVM}">
+			<Views:LoginView/>
+		</DataTemplate>
+		<!-- App route (logged in) -->
+		<DataTemplate DataType="{x:Type VM:AppVM}">
+			<Views:AppView/>
+		</DataTemplate>
+		<!-- Splash route -->
+		<DataTemplate DataType="{x:Type VM:SplashVM}">
+			<Routes:SplashView/>
+		</DataTemplate>
+		
+		<!-- Fallback UI -->
+		<DataTemplate DataType="{x:Type Models:ViewModel}">
+			<Grid Background="Magenta">
+				<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+					<Label Content="{Binding TypeName}" Foreground="White" FontSize="50" FontFamily="Consolas" HorizontalAlignment="Center"/>
+					<Label Content="UI not implemented" Foreground="White" FontSize="30" FontFamily="Consolas" HorizontalAlignment="Center" />
+				</StackPanel>
+			</Grid>
+		</DataTemplate>
+
+	</Window.Resources>
+
+
+	<Grid>
+		<ContentControl Content="{Binding CurrentView}"/>
+	</Grid>
+
+
+
+</Window>

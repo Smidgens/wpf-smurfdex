@@ -1,0 +1,58 @@
+﻿<UserControl
+x:Class="Smurfdex.Views.AppView"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+xmlns:Views="clr-namespace:Smurfdex.Views"
+xmlns:VM="clr-namespace:Engine.Models.View;assembly=engine"
+xmlns:Fragments="clr-namespace:Smurfdex.Views.Fragments"
+mc:Ignorable="d" 
+d:DesignHeight="450"
+d:DesignWidth="800"
+>
+
+	<UserControl.Resources>
+		<!-- Home page -->
+		<DataTemplate DataType="{x:Type VM:HomeVM}">
+			<Views:HomeView />
+		</DataTemplate>
+		<!-- Smurfs page -->
+		<DataTemplate DataType="{x:Type VM:SmurfsVM}">
+			<Views:SmurfsView/>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid Background="#7dbded">
+
+		<!-- Vertical layout -->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="20"/>
+		</Grid.RowDefinitions>
+
+		<!-- Content -->
+		<Grid Grid.Row="1">
+
+			<!-- Horizontal layout -->
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="50"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<!-- Content view -->
+			<ContentControl Content="{Binding CurrentPage}" Grid.Column="1" />
+			<!-- Navbar -->
+			<Fragments:AppNavbar Grid.Column="0" Margin="0,0,1,0"/>
+
+		</Grid>
+
+		<!-- Header -->
+		<Fragments:AppHeader Grid.Row="0" HeaderTitle="Smurfdex" Margin="0,0,0,1"/>
+		<!-- Footer -->
+		<Fragments:AppFooter Grid.Row="2" Margin="0,1,0,0"/>
+
+
+	</Grid>
+</UserControl>

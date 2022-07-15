@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Smurfdex.Views.Fragments.AppNavbar"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+mc:Ignorable="d" 
+d:DesignHeight="450" d:DesignWidth="200">
+
+
+	<UserControl.Resources>
+		<Style x:Key="NavButton" TargetType="{x:Type Grid}">
+			<Setter Property="Cursor" Value="Hand" />
+			<Style.Triggers>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Background" Value="#FF1677C1"/>
+				</Trigger>
+				<Trigger Property="IsMouseOver" Value="False">
+					<Setter Property="Background" Value="#FF1F8BDD"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+	</UserControl.Resources>
+
+	<Grid Background="#FF1F8BDD">
+
+		<!-- Vertical layout -->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="50"/>
+		</Grid.RowDefinitions>
+
+	
+		<!-- Home -->
+		<Grid
+		Style="{StaticResource NavButton}"
+		Height="50" Grid.Row="0" Margin="0,0,0,1">
+			<Image Source="/Resources/house.png"
+			RenderOptions.BitmapScalingMode="Fant"
+			Margin="10" Grid.Column="0">
+			</Image>
+		</Grid>
+
+		<!-- Smurfs -->
+		<Grid
+		Style="{StaticResource NavButton}"
+		Height="50"  Grid.Row="1" Margin="0,0,0,1">
+			<Image
+			Source="/Resources/smurf.png"
+			RenderOptions.BitmapScalingMode="Fant"
+			Margin="10"
+			Grid.Column="0"
+			/>
+		</Grid>
+
+
+
+	</Grid>
+</UserControl>
